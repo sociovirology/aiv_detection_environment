@@ -18,10 +18,10 @@ If you use these data and code, please cite the repository or the paper.
 7. chmod +x AIV_qPCR_primer_analysis.sh ; ./AIV_qPCR_primer_analysis.sh (can be run independently of above)
 
 ### CONTENTS
-### 1. Project Description
-### 2. Packages and software used to test code
-### 3. Data
-### 4. Code
+1. Project Description
+2. Packages and software used to test code
+3. Data
+4. Code
 
 ### 1. Project Description
 Birds are the "natural" host for influenza A viruses (especially duck, geese, and other waterfowl). These avian influenza viruses can spread to commercial poultry operations and have been involved in creating global pandemics after mixing with human influenza strains. Influenza is a digestive infection in birds, which leads to sheding considerable amounts of influenza virus into bodies of water. Therefore, having a good idea of this environmental reservior of viruses is important for fod safety and human health. We used water filtration and single molecule long-read sequencing (Oxford Nanopore Technologies MinION sequencer) to improve detection of avian influenza viruses over current, standard quantitative PCR method on unfiltered water. This repository includes all data (or links to) and analyses in the paper.
@@ -30,14 +30,14 @@ Abstract:
 Migratory waterfowl, including geese and ducks, are indicated as the primary reservoir of avian influenza viruses (AIv) which can be subsequently spread to commercial poultry. The US Department of Agriculture’s (USDA) surveillance efforts of waterfowl for AIv have been largely discontinued in the contiguous United States. Consequently, the use of technologies to identify areas of high waterfowl density and detect the presence of AIv in habitat such as wetlands has become imperative. Here we identified two high waterfowl density areas in California using processed NEXt generation RADar (NEXRAD) and collected water samples to test the efficacy of two tangential flow ultrafiltration methods and two nucleic acid based AIv detection assays. Whole-segment M-RTPCR yielded more positive samples than standard M-segment qPCR methods (50.0% vs 2.6%, p<0.0001). We determined that this difference in positivity was due to mismatches in published primers to our samples and that these mismatches would result in failing to detect in the vast majority of currently sequenced AIv genomes in public databases. The whole segment sequences were subsequently used to provide subtype and potential host information of the AIv environmental reservoir. There was no statistically significant difference in sequencing reads recovered from the RexeedTM filtration compared to the unfiltered surface water. This overall approach combining remote sensing, filtration, and sequencing provides a novel and potentially more effective, surveillance approach for AIv.
 
 ### 2. Packages and software used to test code
-This code was tested using the following software packages
+This code was tested using the following software packages:
 
-NanoFilt (2.5.0)
-cutadapt (2.4)
-BLAST (2.6.0+)
-R (3.5.0 (2018-04-23) -- "Joy in Playing") with packages:
-    readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
-tntblast (2.04)
+* NanoFilt (2.5.0)
+* cutadapt (2.4)
+* BLAST (2.6.0+)
+* R (3.5.0 (2018-04-23) -- "Joy in Playing") with packages:
+    + readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
+* tntblast (2.04)
 
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
