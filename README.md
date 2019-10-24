@@ -1,12 +1,10 @@
 # Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
 
-This github repository includes code (and links to data) from the manuscript: 
-"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"
+This github repository includes code (and links to data) from the manuscript:  
+"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"  
 Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alex Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz 
 
-If you are reading or using this, let us know how these data were useful for you. Always open to collaborate! Please contact us!
-
-If you use these data and code, please cite the repository or the paper.
+If you are reading or using this, let us know how these data were useful for you. If you use these data and code, please cite the repository or the paper. Always open to collaborate! Please contact us!
 
 ##Quick Start
 1. Make sure packages are installed (see #2 below)
