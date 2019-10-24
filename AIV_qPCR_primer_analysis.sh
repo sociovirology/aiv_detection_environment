@@ -28,9 +28,8 @@
 #Collaboration between Diaz-Munoz Lab and Madeline McCuen, Maurice Pitesky (PI)
 
 #The primary data is a FASTA file of all avian influenza virus complete genomes available in the Influenza Research Database (http://fludb.org) - downloaded Aug 12, 2019
-
-#Fasta available in data subfolder
-cd data/ 
+#Fasta available in data subfolder. Let's unzip that file
+gunzip data/avian_complete_genomes_aug12_2019.fasta.gz
 
 #FASTA file is multi-line: fix and export to working folder
 
