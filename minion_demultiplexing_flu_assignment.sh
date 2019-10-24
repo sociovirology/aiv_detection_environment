@@ -9,7 +9,7 @@ wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR103/013/SRR10302213/SRR10302213_1.fas
 gunzip data/aiv_env_all.fastq.gz
 
 #Also unzip the FluDB FASTA which we will use to create the BLAST database downstream
-gunzip all_avian_flu.fasta.gz
+gunzip data/all_avian_flu.fasta.gz
 
 #First let's filter low quality reads
 cat data/aiv_env_all.fastq | NanoFilt -q 9 > aiv_env_all_filtered.fastq
