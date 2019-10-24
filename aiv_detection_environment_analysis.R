@@ -1,8 +1,7 @@
 ################ Avian Influenza Viruses Environment ################
 #### 1. Data Sources and Preparing Data
-#### 2. Analysis of gel eletrophoresis of M-RTPCR Products
-#### 3. Analysis of reads by sample
-#### 4. 
+#### 2. Analysis of Collected Samples
+#### 3. Analysis of Sequencing Reads and FluDB Database Metadata 
 
 #THIS CODE NEEDS FOLOWING FILES: 
 # AIV_filtration sample key 9_26_18.xls, 
@@ -12,9 +11,8 @@
 
 #Project Description
 #Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
-#AIV Environmental Samples
-#Searching for Influenza in the water columns
-#Collaboration between Diaz-Munoz Lab and Madeline McCuen, Maurice Pitesky (PI)
+#Code for "Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"
+#Collaboration between Diaz-Munoz Lab and Madeline McCuen, Maurice Pitesky (PI), UC Davis
 
 #Load libraries
 library(readr)
@@ -156,8 +154,7 @@ colnames(temp_ph_salinity) <- c("Sample", "temp", "salinity", "pH")
 #View(left_join(aiv_filtration, temp_ph_salinity))
 aiv_filtration <- left_join(aiv_filtration, temp_ph_salinity)
 
-## 3. Analysis of reads by sample
-#aiv_filtration <- subset(aiv_filtration[1:38, ], avian_read_matches > 45)
+#### 2. Analysis of Collected Samples ####
 
 #First, let's look at Filtration Method vs Reads Matching AIV 
 #Removing NA's for filtration which would exclude controls and sedmiment samples
@@ -357,8 +354,7 @@ summary(lm(avian_read_matches ~ pH, aiv_filtration))
 summary(lm(avian_read_matches ~ salinity, aiv_filtration))
 
 
-## 4. Metadata of Avia Influenza
-#Analyses below copied and fixed from  metadata_avian.R 
+#### 3. Analysis of Sequencing Reads and FluDB Database Metadata #### 
 
 #import information from .tab files, which contain metadata
 file_names <- list.files(".", "*.tab")
