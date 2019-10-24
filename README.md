@@ -6,7 +6,7 @@ Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallar
 
 If you are reading or using this, let us know how these data were useful for you. If you use these data and code, please cite the repository or the paper. Always open to collaborate! Please contact us!
 
-##Quick Start
+### Quick Start
 1. Make sure packages are installed (see #2 below)
 2. git clone https://github.com/sociovirology/aiv_detection_environment.git
 3. chmod +x minion_demultiplexing_flu_assignment.sh
