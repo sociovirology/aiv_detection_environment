@@ -40,7 +40,7 @@ This code was tested using the following software packages:
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
 
-1) Sequencing file is available in the Sequencing Read Archive
+1) Sequencing file is available in the Sequencing Read Archive (Accession SRX7014890)
 
 2) Sample information is in data/AIV_filtration_sample_key_9_26_18.csv 
 
