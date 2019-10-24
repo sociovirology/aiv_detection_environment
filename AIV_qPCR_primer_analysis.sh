@@ -21,7 +21,7 @@
 #   M−124:	TGCAAAAACATCTTCAAGTCTCTG REVCOMPL> CAGAGACTTGAAGATGTTTTTGCA
 #   M+64:	  FAM-TCAGGCCCCCTCAAAGCCGA-TAMRA
 
-#This script is part of the following manuscript: (COPY FROM README)
+#This script is part of the following manuscript:
 #Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
 #AIV Environmental Samples
 #Searching for Influenza in the water columns
@@ -106,6 +106,7 @@ grep "TCAGGCCCCCTCAAAG" -c fixed_all_avian_flu.fasta
 grep AGATGAGTCTTCTAAC.*TCAGGCCCCCTCAAAG.*CAGAGACTTGAAGATG -c fixed_all_avian_flu.fasta
 #5067
 
+
 #Quick check if we're getting expected amplicon sizes
 grep AGATGAGTCTTCTAAC.*TCAGGCCCCCTCAAAG.*CAGAGACTTGAAGATG -o fixed_all_avian_flu.fasta | awk '{ print length }'
 #93 for every line, so as expected
@@ -113,16 +114,8 @@ grep AGATGAGTCTTCTAAC.*TCAGGCCCCCTCAAAG.*CAGAGACTTGAAGATG -o fixed_all_avian_flu
 #This analysis would suggest a overall success rate of 5067/9855 = 0.5141553 ~ 51.16%, based on exact matches to the first 16nt of the primers/probe
 
 #So based on this analysis at best half of known avian influenza viruses would be detectable 
-#However, sucess rate could be higher given that PCR is able to tolerate mismatches. So examining a second method  
+#However, sucess rate could be higher given that PCR is able to tolerate mismatches. So examining a second method 
 
-
-#INCLUDE IN NEW FILE????? Sept 17
-grep AGATGAGTCTTCTAAC.*TCAGGCCCCCTCAAAG.*CAGAGACTTGAAGATG -c *.fasta
-#forward_B1_SW_Unfltrd.fasta:53
-
-#Now on reverse!
-grep CATCTTCAAGTCTCTG.*CTTTGAGGGGGCCTGA.*GTTAGAAGACTCATCT -c *.fasta
-#reverse_B1_SW_Unfltrd.fasta:8
 
 #### 3. Method B: Biochemical simulation of qPCR using primers against sequence database using ThermonucleotideBLAST ####
 #This method uses ThermonucleotideBLAST (https://public.lanl.gov/jgans/tntblast/tntblast_doc.html) 
@@ -163,8 +156,6 @@ tntblast -i taqman_qPCR_query.txt -d fixed_all_avian_flu.fasta -e 40 -E 40 -m 1 
 
 
 #Second let's evaluate the amplification of the amplicon (no probe), but otherwise using Spackman et al 2002 conditions of 60 degrees C annealing temp; 10 pmol of each primer and 0.3 μM probe in a 20uL reaction 
-#
-
 tntblast -i qPCR_query.txt -d fixed_all_avian_flu.fasta -e 60 -m 1 -t 0.0000003 -o qPCR_query_60.fasta
 #Found 0 (total) matches
 
@@ -178,7 +169,7 @@ tntblast -i qPCR_query.txt -d fixed_all_avian_flu.fasta -e 40 -m 1 -t 0.0000003 
 #Amplicon:
 #	101 <= Amplicon length <= 101
 
-#So based on this analysis, the qPCR withput the probe, would have identical success to the Taqman assay
+#So based on this analysis, the qPCR without the probe, would have identical success to the Taqman assay
 
 #### 4. Conclusions ####
 #Regarding the Spackman et al. 2003 M-segment Taqman assay:
