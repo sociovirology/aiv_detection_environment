@@ -37,6 +37,7 @@ This code was tested using the following software packages:
     + readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
 * tntblast (2.04)
 * seqtk (1.3)
+* GNU Parallel 2018 (needs to be installed on OS X: brew install parallel)
 
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
