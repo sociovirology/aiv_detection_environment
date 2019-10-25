@@ -2,7 +2,7 @@
 
 This github repository includes code (and links to data) from the manuscript:  
 "Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"  
-Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alex Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz 
+Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alexander Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz 
 
 If you are reading or using this, let us know how these data were useful for you. If you use these data and code, please cite the repository or the paper. Always open to collaborate! Please contact us!
 
@@ -40,7 +40,7 @@ This code was tested using the following software packages:
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
 
-1) Sequencing file is available in the Sequencing Read Archive (Accession SRX7014890)
+1) Sequencing file is available in the Sequence Read Archive (Accession SRX7014890)
 
 2) Sample information is in data/AIV_filtration_sample_key_9_26_18.csv 
 
