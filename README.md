@@ -36,6 +36,7 @@ This code was tested using the following software packages:
 * R (3.5.0 (2018-04-23) -- "Joy in Playing") with packages:
     + readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
 * tntblast (2.04)
+* seqtk (1.3)
 
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
