@@ -107,5 +107,5 @@ done
 #Use that file to get matches from the database
 for file in *.tmp; 
 do
-  grep -f $file ~/aiv_environment/aiv_detection_environment/all_avian_flu.fasta > ${file%.out}.tab
+  grep -f $file data/all_avian_flu.fasta > "${file%.out}.tab"
 done
