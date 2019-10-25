@@ -15,7 +15,9 @@ gunzip data/all_avian_flu.fasta.gz
 cat data/aiv_env_all.fastq | NanoFilt -q 9 > aiv_env_all_filtered.fastq
 
 #Then convert to FASTA
-sed -n '1~4s/^@/>/p;2~4p' aiv_env_all_filtered.fastq  > aiv_env_all_filtered.fasta
+#next line doesn't work on OS X
+#sed -n '1~4s/^@/>/p;2~4p' aiv_env_all_filtered.fastq  > aiv_env_all_filtered.fasta
+seqtk seq -A aiv_env_all_filtered.fastq > aiv_env_all_filtered.fasta
 
 cutadapt -g ATCAGTTATGGTGGTCCTACCAGCAAAAGCAGG --untrimmed-output untrimmed_aiv_env_pass_forward.fasta -e 0.3 -o aiv_env_pass_forward.fasta aiv_env_all_filtered.fasta > cutadapt_ONT_forward_report.txt
 #Total reads processed:                 143,716
