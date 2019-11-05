@@ -32,7 +32,7 @@ library(reshape2)
 AIV_filtration_sample_key_9_26_18 <- read_csv("data/AIV_filtration_sample_key_9_26_18.csv")
 
 #View
-View(AIV_filtration_sample_key_9_26_18)
+#View(AIV_filtration_sample_key_9_26_18)
 #OK, can see that there were some extra columns that were merged in original spreadsheet
 
 #Remove irrelevant columns, including key, which I already copied
