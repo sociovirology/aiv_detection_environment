@@ -52,7 +52,7 @@ bands <- c(8, 0, 5, 7, 0, 1, 0, 1, 0, 0, 5, 1,
 
 #Now bind this bands results vector to our AIV data frame
 #Test/Check
-View(cbind(aiv_filtration, bands))
+#View(cbind(aiv_filtration, bands))
 #Implement
 aiv_filtration <- cbind(aiv_filtration, bands)
 head(aiv_filtration)
@@ -478,7 +478,7 @@ nrow(subset(sequence_match_info, `Sample Label` != "PR8 RNA A" & `Sample Label` 
 #[1] 968
 
 #Remove Positive Controls (test)
-View(subset(sequence_match_info, `Sample Label` != "PR8 RNA A" & `Sample Label` != "PR8 RNA B"))
+#View(subset(sequence_match_info, `Sample Label` != "PR8 RNA A" & `Sample Label` != "PR8 RNA B"))
 
 #Subset to remove positive controls
 sequence_match_info_samples <- subset(sequence_match_info, `Sample Label` != "PR8 RNA A" & `Sample Label` != "PR8 RNA B")
@@ -525,7 +525,7 @@ metadata_avian_distinct <- distinct(metadata_avian, gi, .keep_all = TRUE)
 metadata_avian_distinct <- subset(metadata_avian_distinct, select = c("gi", "organism", "strain", "segment", "subtype", "host"))
 
 #Test Join
-View(inner_join(sequence_match_info_samples, metadata_avian_distinct, by = "gi"))
+#View(inner_join(sequence_match_info_samples, metadata_avian_distinct, by = "gi"))
 
 #Join
 sequence_match_info_samples <- inner_join(sequence_match_info_samples, metadata_avian_distinct, by = "gi")
