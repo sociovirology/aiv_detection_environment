@@ -323,31 +323,31 @@ ggplot(aiv_filtration, aes(x = pH, y = avian_read_matches, color=location)) + ge
 #Outlier seems to be clouding things. Try removing. Actiually looks like controls are pushing axis to 6000
 temp_reads <- ggplot(subset(aiv_filtration, temp != "NA"), aes(x = temp, y = avian_read_matches, color=location)) + geom_point()
 temp_reads 
-ggsave("figures/temp_reads.pdf", temp_reads)
+ggsave("temp_reads.pdf", temp_reads)
 
 #Add thresholds from Stallknecht et al 1990
 temp_reads_thresh <- temp_reads + geom_vline(xintercept = c(17, 28), linetype="dotted", color = "black", alpha = 0.5 , size=1.5)
 temp_reads_thresh
-ggsave("figures/temp_reads_thresh.pdf", temp_reads_thresh)
+ggsave("temp_reads_thresh.pdf", temp_reads_thresh)
 
 salinity_reads <- ggplot(subset(aiv_filtration, temp != "NA"), aes(x = salinity, y = avian_read_matches, color=location)) + geom_point()
 salinity_reads
-ggsave("figures/salinity_reads.pdf", salinity_reads)
+ggsave("salinity_reads.pdf", salinity_reads)
 
 pH_reads <- ggplot(subset(aiv_filtration, temp != "NA"), aes(x = pH, y = avian_read_matches, color=location)) + geom_point()
 pH_reads
-ggsave("figures/pH_reads.pdf", pH_reads)
+ggsave("pH_reads.pdf", pH_reads)
 
 #Any linear pattern?
 temp_reads_linear <- ggplot(subset(aiv_filtration, temp != "NA"), aes(x = temp, y = avian_read_matches)) + geom_point() + geom_smooth(method=lm, se=T)
 temp_reads_linear
-ggsave("figures/temp_reads_linear.pdf", temp_reads_linear)
+ggsave("temp_reads_linear.pdf", temp_reads_linear)
 salinity_reads_linear <-ggplot(subset(aiv_filtration, temp != "NA"), aes(x = salinity, y = avian_read_matches)) + geom_point() + geom_smooth(method=lm, se=T)
 salinity_reads_linear
-ggsave("figures/salinity_reads_linear.pdf", salinity_reads_linear)
+ggsave("salinity_reads_linear.pdf", salinity_reads_linear)
 pH_reads_linear <- ggplot(subset(aiv_filtration, temp != "NA"), aes(x = pH, y = avian_read_matches)) + geom_point() + geom_smooth(method=lm, se=T)
 pH_reads_linear
-ggsave("figures/pH_reads_linear.pdf", pH_reads_linear)
+ggsave("pH_reads_linear.pdf", pH_reads_linear)
 
 summary(lm(avian_read_matches ~ temp, aiv_filtration))
 summary(lm(avian_read_matches ~ pH, aiv_filtration))
