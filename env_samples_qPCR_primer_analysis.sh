@@ -223,7 +223,6 @@ done
 
 #First step is to create files with the primer sequences and probes
 echo "TaqmanqPCR-msegment-rev    TGCAAAAACATCTTCAAGTCTCTG    TCGGCTTTGAGGGGGCCTGA    CGACCTCGGTTAGAAGACTCATCT" > taqman_qPCR_query_reverse.txt
-TGCAAAAACATCTTCAAGTCTCTG  TCGGCTTTGAGGGGGCCTGA  CGACCTCGGTTAGAAGACTCATCT
 
 #Same as before but for reverse reads: First evaluate the Taqman assay, using Spackman et al 2002 conditions of 60 degrees C annealing temp; 10 pmol of each primer and 0.3 μM probe in a 20uL reaction 
 #Note use of [1-9] to get only positive samples
