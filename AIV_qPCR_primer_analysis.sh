@@ -1,5 +1,14 @@
 #!/bin/bash
 
+# Script: AIV_qPCR_primer_analysis.sh
+# This shell script uses published sequences in the Influenza Research Database (http://fludb.org) to verify if Spackman et al 2003 primers (for M-segment qPCR) are expected to work on M segments of avian influenza virus
+
+#This script is part of the following manuscript:
+#Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
+#This github repository includes code (and links to data) from the manuscript:
+#"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"
+#Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alexander Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz
+
 ################ Avian Influenza Virus M-segment qPCR Evaluation ################
 #### 1. Script Description, Data Sources, and Preparing Data
 #### 2. Method A: Exact sequence match analysis using GREP
@@ -20,12 +29,6 @@
 #   M+25:   AGATGAGTCTTCTAACCGAGGTCG
 #   M−124:	TGCAAAAACATCTTCAAGTCTCTG REVCOMPL> CAGAGACTTGAAGATGTTTTTGCA
 #   M+64:	  FAM-TCAGGCCCCCTCAAAGCCGA-TAMRA
-
-#This script is part of the following manuscript:
-#Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
-#AIV Environmental Samples
-#Searching for Influenza in the water columns
-#Collaboration between Diaz-Munoz Lab and Madeline McCuen, Maurice Pitesky (PI)
 
 #The primary data is a FASTA file of all avian influenza virus complete genomes available in the Influenza Research Database (http://fludb.org) - downloaded Aug 12, 2019
 #Fasta available in data subfolder. Let's unzip that file

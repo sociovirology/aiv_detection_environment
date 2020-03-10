@@ -14,6 +14,7 @@ If you are reading or using this, let us know how these data were useful for you
 5. Rscript aiv_detection_environment_analysis.R (or load interactively in R)
 6. chmod +x env_samples_qPCR_primer_analysis.sh ; ./env_samples_qPCR_primer_analysis.sh (depends on 4)
 7. chmod +x AIV_qPCR_primer_analysis.sh ; ./AIV_qPCR_primer_analysis.sh (can be run independently of above)
+8. chmod +x positive_control_analysis.sh; ./positive_control_analysis.sh (depends on 4)
 
 ### CONTENTS
 1. Project Description
@@ -30,13 +31,14 @@ Migratory waterfowl, including geese and ducks, are indicated as the primary res
 ### 2. Packages and software used to test code
 This code was tested using the following software packages:
 
-* NanoFilt (2.5.0)
+* NanoFilt (2.3.0)
 * cutadapt (2.4)
-* BLAST (2.6.0+)
+* BLAST (2.2.29)
 * R (3.5.0 (2018-04-23) -- "Joy in Playing") with packages:
     + readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
 * tntblast (2.04)
 * seqtk (1.3)
+* minimap2 (2.17)
 * GNU Parallel 2018 (needs to be installed on OS X: brew install parallel)
 
 ### 3. Data
@@ -54,6 +56,8 @@ Data consists of sequencing output from the Oxford Nanopore Technologies MinION 
 
 6) Database file of all avian influenza sequences in FluDB updated on August 12, 2019 data/avian_complete_genomes_aug12_2019.fasta.gz (used in AIV_qPCR_primer_analysis.sh)
 
+7) Reference sequence for the positive control sample (A/Puerto Rico/8/1934 H1N1) is in data/PR8_Mt_Sinai_NYC.fasta
+
 ### 4. Code
 Below are descriptions of the code files used to generate the tables, figures, and statistics in the paper.
 
@@ -64,3 +68,5 @@ Below are descriptions of the code files used to generate the tables, figures, a
 3) env_samples_qPCR_primer_analysis.sh: This file is a shell script that evaluates whether the sequences derived from samples will yield positives using the Spackman et al 2003 M-segment qPCR primers 
 
 4) AIV_qPCR_primer_analysis.sh: This shell script uses published sequences in the Influenza Research Database (http://fludb.org) to verify if Spackman et al 2003 primers (for M-segment qPCR) are expected to work on M segments of avian influenza virus
+
+5) positive_control_analysis.sh: This shell script analyzes positive control sample against the reference sequence. Note that this file depends on minion_demultiplexing_flu_assignment.sh

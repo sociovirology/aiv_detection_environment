@@ -4,6 +4,7 @@
 # This file is shell script that analyzes positive control sample against the reference sequence
 # NOTE: This file depends on minion_demultiplexing_flu_assignment.sh. Run that script first!
 
+#This script is part of the following manuscript:
 #Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
 #This github repository includes code (and links to data) from the manuscript:
 #"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"

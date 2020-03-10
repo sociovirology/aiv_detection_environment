@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Script: env_samples_qPCR_primer_analysis.sh
+# This file is a shell script that evaluates whether the sequences derived from samples will yield positives using the Spackman et al 2003 M-segment qPCR primers
+# NOTE: This file depends on minion_demultiplexing_flu_assignment.sh. Run that script first!
+
+#This script is part of the following manuscript:
+#Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
+#This github repository includes code (and links to data) from the manuscript:
+#"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"
+#Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alexander Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz
+
 ################ M-segment qPCR Evaluation on California Wetland Samples ################
 #### 1. Script Description, Data Sources, and Preparing Data
 #### 2. Method A: Exact sequence match analysis using GREP
@@ -21,12 +31,6 @@
 #   M+25:   AGATGAGTCTTCTAACCGAGGTCG REVCOMPL> CGACCTCGGTTAGAAGACTCATCT
 #   M−124:	TGCAAAAACATCTTCAAGTCTCTG REVCOMPL> CAGAGACTTGAAGATGTTTTTGCA
 #   M+64:	  FAM-TCAGGCCCCCTCAAAGCCGA-TAMRA REVCOMPL> TCGGCTTTGAGGGGGCCTGA
-
-#This script is part of the following manuscript: (COPY FROM README)
-#Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
-#AIV Environmental Samples
-#Searching for Influenza in the water columns
-#Collaboration between Diaz-Munoz Lab and Madeline McCuen, Maurice Pitesky (PI)
 
 #The primary data are the demultiplexed FASTA files sequenced from water and soil samples in CA Wetlands 
 

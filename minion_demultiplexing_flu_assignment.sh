@@ -1,6 +1,13 @@
 #!/bin/bash
 
-# New Demultiplexing with cutadapt
+# Script: minion_demultiplexing_flu_assignment.sh
+# This file is shell script that downloads and processes raw sequencing reads
+
+#This script is part of the following manuscript:
+#Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
+#This github repository includes code (and links to data) from the manuscript:
+#"Linking remote sensing for targeted surveillance of Avian Influenza virus via tangential flow ultra-filtration and whole segment amplification in California wetlands"
+#Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alexander Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz
 
 #Download FASTQ sequencing file from SRA via EBI (Guppy HAC basecalling)
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR103/013/SRR10302213/SRR10302213_1.fastq.gz -O data/aiv_env_all.fastq.gz
