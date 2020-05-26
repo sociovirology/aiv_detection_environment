@@ -40,6 +40,7 @@ This code was tested using the following software packages:
 * seqtk (1.3)
 * minimap2 (2.17)
 * GNU Parallel 2018 (needs to be installed on OS X: brew install parallel)
+* usearch (8.1.1861, only for checking_similar_sequences.sh)
 
 ### 3. Data
 Data consists of sequencing output from the Oxford Nanopore Technologies MinION sequencer platform (FASTQ files), sample information incl ph/temperature/salinity measurements, gels, and Influenza Research Database FASTA files, and sample barcodes
@@ -70,3 +71,5 @@ Below are descriptions of the code files used to generate the tables, figures, a
 4) AIV_qPCR_primer_analysis.sh: This shell script uses published sequences in the Influenza Research Database (http://fludb.org) to verify if Spackman et al 2003 primers (for M-segment qPCR) are expected to work on M segments of avian influenza virus
 
 5) positive_control_analysis.sh: This shell script analyzes positive control sample against the reference sequence. Note that this file depends on minion_demultiplexing_flu_assignment.sh
+
+6) checking_similar_sequences.sh: This shell script checks if there are identical/very similar reads in the sequencing dataset
