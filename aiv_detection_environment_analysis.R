@@ -1,5 +1,6 @@
 # Script: aiv_detection_environment_analysis.R
 # This file is an R script that couples sequencing information with sample information to arive at the main conclusions in the manuscript
+# NOTE: This file depends on minion_demultiplexing_flu_assignment.sh. Run that script first!
 
 #This script is part of the following manuscript:
 #Analysis of MinION sequence data from water and sediment samples for avian influenza detection in California wetlands
@@ -259,13 +260,12 @@ group_by(subset(aiv_filtration, filtration != "NA" & `Sample Label` != "B1 SW Un
 #We conducted the t-tests excluding samples == 0 and excluding the outlier. Overall result stays the same if t-test includes these samples
 
 #Subsetting for RXD and Unfiltered
-#Not including zero data points
+#Not including zero data points and exclusing outlier
 rxd <- subset(aiv_filtration, filtration == "RXD" & filtration != "NA" & avian_read_matches > 0, select = avian_read_matches, drop = T)
 unfltrd <- subset(aiv_filtration, filtration == "Unfltrd" & filtration != "NA"  & avian_read_matches > 0  & `Sample Label` != "B1 SW Unfltrd", select = avian_read_matches, drop = T)
 
 t.test(rxd, unfltrd)
-#Welch Two Sample t-test
-
+#Welch Two Sample t-test 
 #data:  rxd and unfltrd
 #t = 1.4013, df = 7.151, p-value = 0.203
 #alternative hypothesis: true difference in means is not equal to 0
@@ -275,34 +275,19 @@ t.test(rxd, unfltrd)
 #  mean of x mean of y 
 #23.625000  4.111111 
 
-#Next we analyzed the number of positive samples (i.e. those with reads matching AIV) overall
-#These results reported in Results: M-RTPCR/Sequencing yielded more positive samples than M-segment Quantitative PCR 
+#As seen above the mean number of reads is not statistically significanty different, however are the number of positives *samples* different?
+#So first looking at a total of 15 unfiltered (including outlier) of which 10 were positive (see below)
+length(subset(aiv_filtration, filtration == "Unfltrd" & filtration != "NA", select = avian_read_matches, drop = T))
+#[1] 15
+length(subset(aiv_filtration, filtration == "Unfltrd" & filtration != "NA" & avian_read_matches > 0, select = avian_read_matches, drop = T))
+#[1] 10
+#Then looking at a total of 15 Rexeed filtered samples
+length(subset(aiv_filtration, filtration == "RXD" & filtration != "NA", select = avian_read_matches, drop = T))
+#[1] 15
+length(subset(aiv_filtration, filtration == "RXD" & filtration != "NA" & avian_read_matches > 0, select = avian_read_matches, drop = T))
+#[1] 8
 
-#Include only samples, not controls   
-nrow(aiv_filtration[1:38, ])
-#[1] 38
-#This is total number of samples
-
-#We count as positive the samples that had at least one read matching avian influenza virus genomes database
-table(aiv_filtration[1:38, ]$avian_read_matches > 0)
-#FALSE  TRUE 
-#19    19 
-
-#Comparing proportion of positive samples with qPCR (1/38) with M-RTPCR/sequencing (19/38) 
-prop.test(c(1, 19), c(38, 38), correct=T)
-#2-sample test for equality of proportions with continuity correction
-#data:  c(1, 19) out of c(38, 38)
-#X-squared = 19.611, df = 1, p-value = 9.494e-06
-#alternative hypothesis: two.sided
-#95 percent confidence interval:
-#  -0.6669223 -0.2804462
-#sample estimates:
-#  prop 1     prop 2 
-#0.02631579 0.50000000
-#Thus, number of positive samples was different using RT-qPCR vs amplification/sequencing
-
-#As seen above the mean/median number of reads is not statistically significanty different, however are the number of positives *samples* different?
-#Proportion test 
+#Now we conduct proportion test with numbers above 
 prop.test(c(8, 10), c(15, 15), correct=T)
 #2-sample test for equality of proportions with continuity correction
 #data:  c(8, 10) out of c(15, 15)
@@ -314,7 +299,34 @@ prop.test(c(8, 10), c(15, 15), correct=T)
 #  prop 1    prop 2 
 #0.5333333 0.6666667 
 #Hypothesis that the proportion of positive samples is different, is rejected
-#Not reported in main MS
+
+
+#Next we analyzed the number of positive samples (i.e. those with reads matching AIV) overall
+#These results reported in Results: Whole-segment amplification/sequencing yielded more positive samples than M-segment RT-qPCR
+
+#Include only samples, not controls, nor sediment samples   
+nrow(aiv_filtration[1:33, ])
+#[1] 33
+#This is total number of samples
+
+#We count as positive the samples that had at least one read matching avian influenza virus genomes database
+table(aiv_filtration[1:33, ]$avian_read_matches > 0)
+#FALSE  TRUE 
+#14    19 
+
+#Comparing proportion of positive samples with qPCR (1/38) with M-RTPCR/sequencing (19/38) 
+#prop.test(c(1, 19), c(33, 33), correct=T)
+#2-sample test for equality of proportions with continuity correction
+
+#data:  c(1, 19) out of c(33, 33)
+#X-squared = 20.733, df = 1, p-value = 5.281e-06
+#alternative hypothesis: two.sided
+#95 percent confidence interval:
+#  -0.7542358 -0.3366733
+#sample estimates:
+#  prop 1     prop 2 
+#0.03030303 0.57575758
+#Thus, number of positive samples was different using RT-qPCR vs amplification/sequencing
 
 #Possible question regarding the difference in detection between the two samples: is it due to amplification or sequencing  
 #Mostly amplification as seen below:
@@ -539,6 +551,7 @@ table(subset(sequence_match_info_samples, segment == 7, select = `Sample Label`)
 nrow(table(subset(sequence_match_info_samples, segment == 7, select = `Sample Label`)))
 #[1] 15
 #So if I only count M segment matches as positives by sequencing, I would have 15 positive samples vs 19 if I count any segment (see code below)
+#This result is reported in Results: Whole-segment amplification/sequencing yielded more positive samples than M-segment RT-qPCR
 
 #We count as positive the samples that had at least one read matching avian influenza virus genomes database
 table(aiv_filtration[1:38, ]$avian_read_matches > 0)
@@ -555,6 +568,8 @@ table(subset(aiv_filtration[1:38, ], avian_read_matches > 0, select = `Sample La
 #1             1             1             1             1 
 
 #Yep! Including all read matches added 4 positives: A5 SW Unfltrd, B2 Fltrd RXD, C1 Fltrd RXD, and C1 SW Unfltrd 
+
+#Is there any evidence of identical or similar sequences across samples? No. See analysis in checking_similar_sequences.sh
 
 #Let's do a quick sanity check that this is all working properly
 #One way to check is to look at reads here vs AIV filtration
