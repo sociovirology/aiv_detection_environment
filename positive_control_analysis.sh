@@ -11,10 +11,10 @@
 #Madeline M. McCuen | Maurice E. Pitesky | Ana Paula da Silva | Rodrigo A. Gallardo | Jeff J. Buler | Sarai Acosta | Alexander Wilcox | Ronald F. Bond | Samuel L. Díaz-Muñoz
 
 #Mt Siani PR8 (A/Puerto Rico/8/1934 H1N1) as a FASTA sequence to serve as a reference:
-less data/PR8_Mt_Sinai_NYC.fasta
+#less data/PR8_Mt_Sinai_NYC.fasta
 
 #Let's install minimap2, which is a long-read aligner
-conda install minimap2
+#conda install minimap2
 #minimap2-2.17
 
 #Now let's run a command to align Oxford Nanopore reads to a reference sequence
