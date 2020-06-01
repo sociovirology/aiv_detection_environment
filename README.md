@@ -15,6 +15,7 @@ If you are reading or using this, let us know how these data were useful for you
 6. chmod +x env_samples_qPCR_primer_analysis.sh ; ./env_samples_qPCR_primer_analysis.sh (depends on 4)
 7. chmod +x AIV_qPCR_primer_analysis.sh ; ./AIV_qPCR_primer_analysis.sh (can be run independently of above)
 8. chmod +x positive_control_analysis.sh; ./positive_control_analysis.sh (depends on 4)
+9. chmod +x checking_similar_sequences.sh; ./checking_similar_sequences.sh (depends on 4)
 
 ### CONTENTS
 1. Project Description
