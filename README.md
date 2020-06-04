@@ -39,6 +39,7 @@ This code was tested using the following software packages:
     + readr, tidyr, ggplot2, dplyr, ggthemes, gridExtra, reshape2
 * tntblast (2.04)
 * seqtk (1.3)
+* SAMtools (1.7)
 * minimap2 (2.17)
 * GNU Parallel 2018 (needs to be installed on OS X: brew install parallel)
 * usearch (8.1.1861, only for checking_similar_sequences.sh)
