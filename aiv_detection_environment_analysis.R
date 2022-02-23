@@ -99,7 +99,7 @@ head(aiv_filtration)
 demultiplexing_by_sample <- read.table("demultiplexing_by_sample.txt", quote="\"", comment.char="", col.names = c("reads", "sample"))
 
 #Partition forward and reverse reads
-demultiplexing_by_sample <- separate(demultiplexing_by_sample, sample, c("direction", "sample"), sep = "^*_", extra = "merge")
+demultiplexing_by_sample <- separate(demultiplexing_by_sample, sample, c("direction", "sample"), sep = "_", extra = "merge")
 
 #Make separate columns for reverse and forward reads 
 demultiplexing_by_sample <- dcast(demultiplexing_by_sample, sample~direction, value.var = "reads")
@@ -128,7 +128,7 @@ aiv_filtration$reads_assigned[is.na(aiv_filtration$reads_assigned)] <- 0
 avian_blast_matches <- read.table("avian_blast_matches.txt", quote="\"", comment.char="", col.names = c("avian", "sample"))
 
 #Partition forward and reverse reads
-avian_blast_matches <- separate(avian_blast_matches, sample, c("direction", "sample"), sep = "^*_", extra = "merge")
+avian_blast_matches <- separate(avian_blast_matches, sample, c("direction", "sample"), sep = "_", extra = "merge")
 
 #Make separate columns for reverse and forward reads 
 avian_blast_matches <- dcast(avian_blast_matches, sample~direction, value.var = "avian")
